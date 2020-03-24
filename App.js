@@ -276,6 +276,12 @@ import { Screens } from 'react-native-screens';
 import Splashscreen from './components/screens/Splashscreen'
 import Home from './components/screens/Home'
 import Choose_topics from './components/screens/Choose_topics'
+import Payment from './components/screens/Payment'
+import Take_details from './components/screens/Take_details'
+import Thanks from './components/screens/Thanks'
+
+
+import Chat_details from './components/screens/chat/Chat_details'
 
 
 
@@ -297,11 +303,21 @@ export default class App extends React.Component {
 
 const HomeStack = createStackNavigator(
   { 
-    Choose_topics: Choose_topics,
-    Home: Home 
+    Take_details: Take_details,
+    Payment: Payment 
   },
   {
-    initialRouteName: 'Choose_topics',
+    initialRouteName: 'Take_details',
+  }
+);
+
+const DoneStack = createStackNavigator(
+  { 
+    Take_details: Take_details,
+    Thanks: Thanks 
+  },
+  {
+    initialRouteName: 'Take_details',
   }
 );
 
@@ -310,6 +326,7 @@ const RootStack = createSwitchNavigator(
   {
     Splashscreen: Splashscreen,
     MainApp: HomeStack,
+    PaymentDone:DoneStack
   },
   {
     initialRouteName: 'Splashscreen',
