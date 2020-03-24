@@ -6,7 +6,7 @@ Do following steps to run this project
 
 step1: Clone/Download this repository
 
-step2: cd Myebook
+step2: cd post_form
 
 step3: npm i
 
