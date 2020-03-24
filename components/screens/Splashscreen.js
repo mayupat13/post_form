@@ -25,23 +25,19 @@ componentDidMount() {
 } 
 
 
-
-
-
- fetchdata() {
-  const { navigate } = this.props.navigation
-
-  NetInfo.fetch().then(state => {
+  fetchdata() {
+    const { navigate } = this.props.navigation
+    NetInfo.fetch().then(state => {
 
       if (state.isConnected == !true) {
         this.fetchdata()
       }else{
         this.timeoutHandle = setTimeout(()=>{
-          navigate('Choose_topics');
+          navigate('MainApp');
         }, 2000);
       }
     });
-};
+  };
 
 
 render() {
@@ -50,12 +46,8 @@ render() {
       
       <SafeAreaView style={{flex:1,backgroundColor:'#fff',justifyContent:'center',alignItems:'center'}}>
         <StatusBar backgroundColor='#fff' barStyle="dark-content" />
-        <Image
-          style={{width:150,height:150,resizeMode:"cover"}}
-          source={require('../img/brand_logo.png')}
-        /> 
-        <Text style={{color:'#5E56E7',fontSize:48,fontFamily:'Montserrat-Bold'}}>Gutenberg</Text>
-        <Text style={{color:'#5E56E7',fontSize:48,fontFamily:'Montserrat-Bold'}}>Project</Text>
+        <Text style={{color:'#5E56E7',fontSize:48,fontWeight:'bold'}}>Post Form</Text>
+        <Text style={{color:'#5E56E7',fontSize:48,fontWeight:'bold'}}>Project</Text>
       </SafeAreaView>
     );
   }
